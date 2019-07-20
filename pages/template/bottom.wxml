@@ -1,0 +1,81 @@
+<template name="bottom">
+  <view class='bottom' wx:if='{{bottom.isText}}'>
+    <view class='bottom-text'>
+      <view class='line'></view>
+      <view class='text color2 font-x'>{{bottom.text}}</view>
+      <view class='line'></view>
+    </view>
+  </view>
+  <view class='tips-main' wx:if='{{bottom.isLoadError}}'>
+    <view class='tips-img'>
+      <image src='../../images/load-error.png'></image>
+    </view>
+    <view class='tips-text'>
+      <view class='color1 font-x'>内容加载失败，请检查网络</view>
+    </view>
+    <view class='tips-btn'>重新加载</view>
+  </view>
+  <view class='tips-main' wx:if='{{bottom.isLoadNull}}'>
+    <view class='tips-img'>
+      <image src='../../images/load-null.png'></image>
+    </view>
+    <view class='tips-text'>
+      <view class='color1 font-x'>什么都没搜到</view>
+    </view>
+  </view>
+</template>
+
+<template name="bottom-toolbar">
+  <view class='float-block' wx:if='{{bottomToolbar.authScope.userInfo}}'>
+    <view class='input-frame'>
+      <view class='icon'>
+        <image src='../../images/input-icon.png'></image>
+      </view>
+      <view class='text-input'>
+        <input type='text' maxlength='100' value='{{bottomToolbar.commentInfo}}' placeholder='写点评论呗...' bindconfirm='addComment' focus='{{bottomToolbar.isFocus}}' bindinput='commentTnput'></input>
+      </view>
+    </view>
+    <view class='icon-list'>
+      <view class='icon' wx:if='{{bottomToolbar.isCollect}}' bindtap='cancelCollect'>
+        <image src='../../images/collect-icon-click.png'></image>
+      </view>
+      <view class='icon' wx:else bindtap='addCollect'>
+        <image src='../../images/collect-icon.png'></image>
+      </view>
+      <view class='icon' wx:if='{{bottomToolbar.isPraise}}' bindtap='cancelPraise'>
+        <image src='../../images/praise-icon-click.png'></image>
+        <view class='icon-tag icon-tag-click'>{{bottomToolbar.praiseNumber > 99 ? '99+' : bottomToolbar.praiseNumber}}</view>
+      </view>
+      <view class='icon' wx:else bindtap='addPraise'>
+        <image src='../../images/praise-icon.png'></image>
+        <view class='icon-tag'>{{bottomToolbar.praiseNumber > 99 ? '99+' : bottomToolbar.praiseNumber}}</view>
+      </view>
+      <button class='icon' open-type='share'>
+        <image src='../../images/arrow-icon.png'></image>
+      </button>
+    </view>
+  </view>
+
+  <button class='float-block' open-type='getUserInfo' bindgetuserinfo='onGetUserInfo' wx:else>
+    <view class='input-frame'>
+      <view class='icon'>
+        <image src='../../images/input-icon.png'></image>
+      </view>
+      <view class='text-input'>
+        <text class='font-x color2'>写点评论呗...</text>
+      </view>
+    </view>
+    <view class='icon-list'>
+      <view class='icon'>
+        <image src='../../images/collect-icon.png'></image>
+      </view>
+      <view class='icon'>
+        <image src='../../images/praise-icon.png'></image>
+        <view class='icon-tag'>{{bottomToolbar.praiseNumber > 99 ? '99+' : bottomToolbar.praiseNumber}}</view>
+      </view>
+      <button class='icon' open-type='share'>
+        <image src='../../images/arrow-icon.png'></image>
+      </button>
+    </view>
+  </button>
+</template>

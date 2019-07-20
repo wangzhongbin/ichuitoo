@@ -1,0 +1,57 @@
+<import src='../template/nav.wxml'></import>
+<template is="top-nav" data='{{nav}}' />
+
+<scroll-view class='container' style='height:{{nav.scrollHeight}}px;' scroll-y='{{true}}'>
+  <view class='line-list'>
+    <view class='line line-from'>
+      <view class='form-label'>添加标题：</view>
+      <view class='form-frame'>
+        <input type='text' placeholder='请输入标题18字左右阅读体验更佳' maxlength='20' placeholder-class='input-placeholder' bindinput='titleInput' value='{{content.title}}'></input>
+      </view>
+    </view>
+    <view wx:for='{{itemList}}' wx:key='obj'>
+      <view class='line line-from line-img' wx:if='{{item.type == 2}}' bindlongpress='deleteItem' data-index='{{index}}'>
+        <image src='{{item.imgUrl}}' mode='aspectFill' wx:if='{{item.imgUrl != "" && item.imgUrl !=null }}'></image>
+        <image src='{{imgReadPath}}{{item.image.imgUrl}}' mode='aspectFill' wx:else></image>
+      </view>
+      <view class='line' wx:if='{{item.type == 3}}' bindtap='updateText' bindlongpress='deleteItem' data-index='{{index}}'>
+        <text>{{item.text}}</text>
+      </view>
+    </view>
+  </view>
+  <view class='line line-link' bindtap='addText'>
+    <view class='link-title'>添加一段文本
+      <text class='title-label'>{{count.text}}/{{count.maxText}}</text>
+    </view>
+    <view class='link-text'>长按文本可删除</view>
+    <view class='link-arrow'>
+      <image src='../../images/arrow-left-icon.png'></image>
+    </view>
+  </view>
+  <view class='line line-link' bindtap='chooseImage'>
+    <view class='link-title'>添加一张图片
+      <text class='title-label'>{{count.img}}/{{count.maxImg}}</text>
+    </view>
+    <view class='link-text'>长按图片可删除</view>
+    <view class='link-arrow'>
+      <image src='../../images/arrow-left-icon.png'></image>
+    </view>
+  </view>
+  <view class='submit-btn submit-group-btn average'>
+    <button disabled='{{isDisabled}}' class='btn empty-btn' bindtap='save'>保存</button>
+    <button disabled='{{isDisabled}}' class='btn' bindtap='next'>下一步</button>
+  </view>
+</scroll-view>
+
+<view class='shadow' wx:if='{{showTextarea}}'>
+  <view class='shadow-frame'>
+    <view class='frame'>
+      <textarea placeholder='你可以在此添加正文，您可以输入500个字。' placeholder-class='input-placeholder' maxlength='500' bindinput='textInput' value='{{choiceItem.text}}'></textarea>
+      <view class='textarea-text'>您还能输入{{500 - choiceItem.text.length}}个字</view>
+    </view>
+    <view class='submit-btn xs-submit-btn average'>
+      <view class='btn empty-btn' catchtap='itemTextCancel'>取消</view>
+      <view class='btn' catchtap='itemTextConfirm'>完成</view>
+    </view>
+  </view>
+</view>

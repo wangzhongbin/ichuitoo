@@ -1,0 +1,16 @@
+
+.container{background: #fff;}
+
+.top{padding-top: 60rpx;text-align: center;background: #fff;}
+.top .title{height: 45rpx;line-height: 45rpx;padding-bottom: 15rpx;}
+.top .title .title-icon{display: inline-block;width: 36rpx;height: 44rpx;vertical-align: top;}
+.top .title .title-text{display: inline-block;font-size: 40rpx;margin-left: 10rpx;}
+
+.block-list .item .img{width: 225rpx;height: 150rpx; border-radius: 0;}
+.block-list .item .info{width: 440rpx;height: 150rpx;}
+.block-list .item .info .text{padding: 0;line-height: 35rpx;height: 70rpx;}
+.block-list .item .info .last-column{vertical-align: top;}
+.block-list .item .info .last-text{display: inline-block;width: 250rpx;}
+.block-list .item .info .last-btn{display: inline-block;background: #f4f5f6;border: 2rpx solid #e3e3e3;border-radius: 16rpx;padding: 4rpx 10rpx;line-height: 1;margin-left: 10rpx;}
+.block-list .item .info .last-btn .icon{display: inline-block;vertical-align: top;width: 20rpx;height: 24rpx;}
+.block-list .item .info .last-btn .btn{display: inline-block;margin-left: 5rpx;}

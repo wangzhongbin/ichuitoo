@@ -1,0 +1,23 @@
+<template name="comment">
+  <view class='line-list'>
+    <view class='label-line'>
+      <view class='font-2x'>评论（{{comment.number}}）</view>
+    </view>
+    <view class='label-border'></view>
+    <view class='line' wx:for='{{comment.list}}' wx:key='obj'>
+      <view class='avatar'>
+        <image src='{{item.user.avatarUrl}}'></image>
+      </view>
+      <view class='info'>
+        <view class='text'>
+          <text>{{item.user.nickName}}</text>
+          <text class='font-x color2'>{{item.createDate}}</text>
+        </view>
+        <view class='info-text font-2x'>{{item.info}}</view>
+      </view>
+    </view>
+    <view wx:if='{{comment.list.length == 0}}' class='box-bottom' bindtap='focusCommentInput'>
+      <text>这么寂静，赶快来个神评论！</text>
+    </view>
+  </view>
+</template>

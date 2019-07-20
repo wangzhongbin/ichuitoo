@@ -1,0 +1,205 @@
+<import src='../template/nav.wxml'></import>
+<template is="top-nav" data='{{nav}}' />
+
+<scroll-view class='container' style='height:{{nav.scrollHeight}}px;' scroll-y='{{true}}'>
+  <view class='background-bar'></view>
+  <view class='user-top'>
+    <view class='user-line' wx:if='{{authScope.userInfo}}'>
+      <view class='avatar'>
+        <open-data type='userAvatarUrl'></open-data>
+      </view>
+      <view class='info'>
+        <view class='nick'>
+          <open-data type="userNickName"></open-data>
+        </view>
+        <view class='tag-level'>LV.{{level}}</view>
+        <navigator class='tag-up' url='/pages/user/upgrade?level={{level}}&value={{userCount.empiricalValue}}'>我要升级</navigator>
+        <view class='tag-up-icon'>
+          <image src='../../images/up-icon.png'></image>
+        </view>
+        <view class='font-x color2' bindtap='signature'>{{user.signature}}</view>
+      </view>
+    </view>
+    <button class='user-line' wx:else open-type='getUserInfo' bindgetuserinfo='onGetUserInfo'>
+      <view class='avatar'>
+        <image src='../../images/user-avatar.png'></image>
+      </view>
+      <view class='info'>
+        <view class='nick'>
+          <text>未登录</text>
+        </view>
+        <view class='font-x color2'>登陆后才能开启各项服务</view>
+      </view>
+      <view class='last'>
+        <view class='btn font-x click-btn'>授权登陆</view>
+      </view>
+    </button>
+
+    <view class='column average' wx:if='{{authScope.userInfo}}'>
+      <navigator class='group' url='/pages/user/detail'>
+        <view class='font-4x'>{{userCount.issueNumber}}</view>
+        <view class='font-x color2'>发布</view>
+      </navigator>
+      <view class='group-border'></view>
+      <navigator class='group' url='/pages/user/like'>
+        <view class='font-4x'>{{userCount.likeNumber}}</view>
+        <view class='font-x color2'>关注</view>
+      </navigator>
+      <view class='group-border'></view>
+      <navigator class='group' url='/pages/user/fans'>
+        <view class='font-4x'>{{userCount.fansNumber}}</view>
+        <view class='font-x color2'>粉丝</view>
+      </navigator>
+      <view class='group-border'></view>
+      <view class='group' bindtap='showPraise'>
+        <view class='font-4x'>{{userCount.praiseNumber}}</view>
+        <view class='font-x color2'>获赞</view>
+      </view>
+    </view>
+    <view class='column average' wx:else>
+      <view class='group'>
+        <view class='font-4x'>{{userCount.issueNumber}}</view>
+        <view class='font-x color2'>发布</view>
+      </view>
+      <view class='group-border'></view>
+      <view class='group'>
+        <view class='font-4x'>{{userCount.likeNumber}}</view>
+        <view class='font-x color2'>关注</view>
+      </view>
+      <view class='group-border'></view>
+      <view class='group'>
+        <view class='font-4x'>{{userCount.fansNumber}}</view>
+        <view class='font-x color2'>粉丝</view>
+      </view>
+      <view class='group-border'></view>
+      <view class='group'>
+        <view class='font-4x'>{{userCount.praiseNumber}}</view>
+        <view class='font-x color2'>获赞</view>
+      </view>
+    </view>
+  </view>
+
+  <view class='block-like' bindtap='scrollTouchEnd'>
+    <!-- <view class='img'>
+      <image src='../../images/user-block-like.png' mode='widthFix'></image>
+    </view> -->
+  </view>
+
+  <view class='line-list' wx:if='{{authScope.userInfo}}'>
+    <navigator class='line line-link' url='/pages/user/content'>
+      <view class='link-icon'>
+        <image src='../../images/user-menu-1.png'></image>
+      </view>
+      <view class='link-title'>我要发文</view>
+      <view class='link-text'>测评、科普、经验等</view>
+      <view class='link-arrow'>
+        <image src='../../images/arrow-left-icon.png'></image>
+      </view>
+    </navigator>
+    <navigator class='line line-link' url='/pages/user/collect'>
+      <view class='link-icon'>
+        <image src='../../images/user-menu-2.png'></image>
+      </view>
+      <view class='link-title'>我的收藏</view>
+      <view class='link-text'></view>
+      <view class='link-arrow'>
+        <image src='../../images/arrow-left-icon.png'></image>
+      </view>
+    </navigator>
+    <view class='line line-link' bindtap='tapScore'>
+      <view class='link-icon'>
+        <image src='../../images/user-menu-3.png'></image>
+      </view>
+      <view class='link-title'>我的积分</view>
+      <view class='link-text'>当前积分：0</view>
+      <view class='link-arrow'>
+        <image src='../../images/arrow-left-icon.png'></image>
+      </view>
+    </view>
+    <navigator class='line line-link' url='/pages/user/link'>
+      <view class='link-icon'>
+        <image src='../../images/user-menu-4.png'></image>
+      </view>
+      <view class='link-title'>联系我们</view>
+      <view class='link-text'></view>
+      <view class='link-arrow'>
+        <image src='../../images/arrow-left-icon.png'></image>
+      </view>
+    </navigator>
+  </view>
+
+  <button class='line-list' wx:else open-type='getUserInfo' bindgetuserinfo='onGetUserInfo'>
+    <view class='line line-link'>
+      <view class='link-icon'>
+        <image src='../../images/user-menu-1.png'></image>
+      </view>
+      <view class='link-title'>我要发文</view>
+      <view class='link-text'>测评、科普、经验等</view>
+      <view class='link-arrow'>
+        <image src='../../images/arrow-left-icon.png'></image>
+      </view>
+    </view>
+    <view class='line line-link'>
+      <view class='link-icon'>
+        <image src='../../images/user-menu-2.png'></image>
+      </view>
+      <view class='link-title'>我的收藏</view>
+      <view class='link-text'></view>
+      <view class='link-arrow'>
+        <image src='../../images/arrow-left-icon.png'></image>
+      </view>
+    </view>
+    <view class='line line-link'>
+      <view class='link-icon'>
+        <image src='../../images/user-menu-3.png'></image>
+      </view>
+      <view class='link-title'>我的积分</view>
+      <view class='link-text'>当前积分：0</view>
+      <view class='link-arrow'>
+        <image src='../../images/arrow-left-icon.png'></image>
+      </view>
+    </view>
+    <view class='line line-link'>
+      <view class='link-icon'>
+        <image src='../../images/user-menu-4.png'></image>
+      </view>
+      <view class='link-title'>联系我们</view>
+      <view class='link-text'></view>
+      <view class='link-arrow'>
+        <image src='../../images/arrow-left-icon.png'></image>
+      </view>
+    </view>
+  </button>
+</scroll-view>
+<view class='shadow' wx:if='{{showPraise}}' data-close='1' bindtap='hideLayer'>
+  <view class='shadow-alert'>
+    <view class='alert-close'>
+      <image data-close='1' src='../../images/praise-close.png'></image>
+    </view>
+    <view class='alert-bg'>
+      <image src='../../images/praise-bg.png'></image>
+    </view>
+    <view class='alert-info'>
+      <view class='font-x' wx:if='{{userCount.praiseNumber == 0}}'>加油哦!</view>
+      <view class='font-x' wx:else>你好棒棒哦!</view>
+      <view>共获得
+        <text class='color-main'>{{userCount.praiseNumber}}</text>个赞</view>
+    </view>
+    <view class='alert-btn'>
+      <view class='btn' data-close='1'>知道啦</view>
+    </view>
+  </view>
+</view>
+
+<view class='shadow' wx:if='{{showTextarea}}'>
+  <view class='shadow-frame'>
+    <view class='frame'>
+      <textarea placeholder='您可以输入16个字。' placeholder-class='input-placeholder' maxlength='16' bindinput='textInput' value='{{textareaInfo}}'></textarea>
+      <view class='textarea-text'>您还能输入{{16 - textareaInfo.length}}个字</view>
+    </view>
+    <view class='submit-btn xs-submit-btn average'>
+      <view class='btn empty-btn' catchtap='itemTextCancel'>取消</view>
+      <view class='btn' catchtap='itemTextConfirm'>完成</view>
+    </view>
+  </view>
+</view>

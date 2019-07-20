@@ -1,0 +1,8 @@
+<import src='../template/nav.wxml'></import>
+<template is="top-nav" data='{{nav}}' />
+
+<scroll-view class='container' style='height:{{nav.scrollHeight}}px;' scroll-y='{{true}}'>
+  <view class='line-list'>
+    <view class='line' wx:for='{{list}}' wx:key='obj' data-index='{{index}}' bindtap='choice'>{{item.name}}</view>
+  </view>
+</scroll-view>

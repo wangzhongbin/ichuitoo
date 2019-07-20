@@ -1,0 +1,9 @@
+<import src='../template/nav.wxml'></import>
+<import src='../template/user.wxml'></import>
+<import src='../template/bottom.wxml'></import>
+<template is="top-nav" data='{{nav}}' />
+
+<scroll-view class='container' style='height:{{nav.scrollHeight}}px;' scroll-y='{{true}}'>
+<template is="userList" data='{{...userData}}' />
+<template is="bottom" data='{{bottom}}' />
+</scroll-view>

@@ -1,0 +1,10 @@
+<template name="menu">
+  <scroll-view class='menu-scroll' scroll-x='{{true}}'>
+    <view class='menu'>
+      <view wx:for='{{menu.list}}' wx:key='obj' class='item {{index == menu.choiceIndex?"choice":""}}' bindtap='tapMenu' data-index='{{index}}'>
+        <view class='text'>{{item.name}}</view>
+        <view class='bar'></view>
+      </view>
+    </view>
+  </scroll-view>
+</template>

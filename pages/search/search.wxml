@@ -1,0 +1,25 @@
+<import src='../template/nav.wxml'></import>
+<import src='../template/search.wxml'></import>
+<import src='../template/menu.wxml'></import>
+<import src='../template/content.wxml'></import>
+<import src='../template/user.wxml'></import>
+<import src='../template/bottom.wxml'></import>
+<template is="top-nav" data='{{nav}}' />
+
+<scroll-view class='container' style='height:{{nav.scrollHeight}}px;' scroll-y='{{true}}'>
+  <template is="top-search" data='{{search}}' />
+  <template is="menu" data='{{menu}}' />
+
+  <view class='content-list' wx:if='{{menu.choiceIndex == 0}}'>
+    <template wx:for='{{contentList}}' wx:key='obj' is='{{item.classType == 1? "content-1": item.classType == 2?"content-2": ""}}' data='{{item}}' />
+  </view>
+
+  <view class='content-list' wx:if='{{menu.choiceIndex == 1}}'>
+    <template wx:for='{{videoList}}' wx:key='obj' is='content-3' data='{{item}}' />
+  </view>
+
+  <view wx:if='{{menu.choiceIndex == 2}}'>
+    <template is="userList" data='{{...userData}}' />
+  </view>
+  <template is="bottom" data='{{bottom}}' />
+</scroll-view>

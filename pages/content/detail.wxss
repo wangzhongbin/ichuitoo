@@ -1,0 +1,8 @@
+
+@import '../../utils/wxss/text-detail.wxss';
+@import '../../utils/wxss/share.wxss';
+
+.user-top .user-line{padding: 0;}
+.user-top .user-line .avatar{width: 80rpx;height: 80rpx;}
+.user-top .user-line .info{padding: 0 0 0 20rpx;}
+.user-top .user-line .last{padding: 0;}

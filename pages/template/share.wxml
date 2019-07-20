@@ -1,0 +1,15 @@
+<template name="detailShare">
+  <view class='shadow' wx:if='{{share.showShare}}' data-close='1' bindtap='hideShareLayer'>
+    <view class='shadow-share'>
+      <view class='share-img'>
+        <image src='{{share.imageUrl}}' mode='widthFix'></image>
+      </view>
+        <view class='share-bg'></view>
+      <view class='share-code-btn'>{{share.btnText}}</view>
+      <view class='share-close' data-close='1'>
+        <image src='../../images/share-close.png' data-close='1'></image>
+      </view>
+    </view>
+  </view>
+  <canvas canvas-id="shareCanvas" class='share-canvas' wx:if='{{share.showCanvas}}'></canvas>
+</template>

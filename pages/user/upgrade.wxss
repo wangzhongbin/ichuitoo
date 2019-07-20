@@ -1,0 +1,11 @@
+/* pages/user/upgrade.wxss */
+
+.top{padding: 40rpx;background: #fff;border-bottom: 2rpx solid #eee;text-align: center;}
+.top-item{padding: 20rpx;display: inline-block;width: 240rpx;}
+.top-item-border{height: 200rpx;width: 2rpx;background: #eee;}
+.top-item .icon{width: 120rpx;height: 120rpx;border-radius: 100%;font-family: ArialRoundedMTBold;font-size: 48rpx;line-height: 120rpx;margin: auto;letter-spacing: -4rpx;}
+.top-item .icon-lv{background: #fdf5ea;color: #e99b34;}
+.top-item .icon-number{background: #fbe5e5;color: #d60202;}
+.top-item .text{padding: 25rpx 0;}
+
+.main{padding: 30rpx;box-shadow: 0 8rpx 10rpx 0 #eee;border-radius: 0 0 16rpx 16rpx;background: #fff;}

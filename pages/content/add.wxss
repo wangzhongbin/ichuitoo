@@ -1,0 +1,13 @@
+
+.container{background: #fff;}
+
+.line-list{border-radius: 0;box-shadow: 0 0 0 0 transparent;}
+.line-link .link-title{width: 200rpx;}
+.line-link .link-text{width: 400rpx;}
+
+.upload{padding: 40rpx;}
+.upload-tips{padding-top: 20rpx;font-size: 24rpx;color: #999;}
+.upload-list .close-img{position: absolute;width: 30rpx;height: 30rpx;margin:-25rpx 0 0 180rpx;padding: 15rpx;}
+.upload-list .img{width: 210rpx;height: 140rpx;background: #f4f5f6;display: inline-block;vertical-align: top;text-align: center;}
+.upload-list > .img + .img{margin: 0 0 20rpx 20rpx;}
+.upload-list .icon{width: 58rpx;height: 50rpx;margin: 30rpx auto 15rpx;}

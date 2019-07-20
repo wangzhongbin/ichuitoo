@@ -1,0 +1,72 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/user/user",
+    "pages/user/detail",
+    "pages/user/content",
+    "pages/user/collect",
+    "pages/user/upgrade",
+    "pages/user/link",
+    "pages/user/like",
+    "pages/user/fans",
+    "pages/goods/detail",
+    "pages/goods/goods",
+    "pages/video/detail",
+    "pages/search/search",
+    "pages/content/list",
+    "pages/content/detail",
+    "pages/content/add",
+    "pages/content/write",
+    "pages/content/type",
+    "pages/content/tag",
+    "pages/content/copy-text",
+    "pages/h5/h5",
+    "pages/logs/logs"
+  ],
+  "tabBar": {
+    "position": "bottom",
+    "borderStyle": "black",
+    "backgroundColor": "#fff",
+    "color": "#666",
+    "selectedColor": "#d81e06",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "images/tab/index.png",
+        "selectedIconPath": "images/tab/index-selected.png",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/content/list",
+        "iconPath": "images/tab/content.png",
+        "selectedIconPath": "images/tab/content-selected.png",
+        "text": "好文"
+      },
+      {
+        "pagePath": "pages/goods/goods",
+        "iconPath": "images/tab/goods.png",
+        "selectedIconPath": "images/tab/goods-selected.png",
+        "text": "好物"
+      },
+      {
+        "pagePath": "pages/user/user",
+        "iconPath": "images/tab/user.png",
+        "selectedIconPath": "images/tab/user-selected.png",
+        "text": "我的"
+      }
+    ]
+  },
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle":"black",
+    "navigationStyle": "custom"
+  },
+  "networkTimeout": {
+    "request": 10000
+  },
+  "navigateToMiniProgramAppIdList": [
+    "wx7462971590e3994a"
+  ]
+}

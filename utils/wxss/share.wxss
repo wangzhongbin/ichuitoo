@@ -1,0 +1,9 @@
+.share-canvas{width: 540px;height: 604px;margin-top: 200px;}
+
+.shadow-share{width: 540rpx;margin: calc((100vh - 680rpx)/2) auto;}
+
+.share-bg{position: absolute;background: #fff;z-index: -1;width: 540rpx;height: 60rpx;margin-top: -40rpx;}
+
+.share-code-btn{color: #e41c26;font-size: 24rpx;text-align: center;line-height: 80rpx;background: #f4f5f6;border-radius: 0 0 16rpx 16rpx;}
+
+.share-close{width: 48rpx;height: 130rpx;margin: -10rpx 0 0 245rpx;}

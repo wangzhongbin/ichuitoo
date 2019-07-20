@@ -1,0 +1,45 @@
+<import src='../template/nav.wxml'></import>
+<template is="top-nav" data='{{nav}}' />
+
+<scroll-view class='container' style='height:{{nav.scrollHeight}}px;' scroll-y='{{true}}'>
+  <view class='top'>
+    <view>
+      <view class='title'>
+        <view class='title-icon'>
+          <image src='../../images/content-icon.png'></image>
+        </view>
+        <view class='title-text'>写文章</view>
+      </view>
+      <view class='font-x color2'>评测、经验、科普</view>
+    </view>
+    <view class='submit-btn'>
+      <navigator class='btn' url='/pages/content/write'>我要发文</navigator>
+    </view>
+  </view>
+  <view class='simple-menu'>
+    <view bindtap='tapStatus' wx:for='{{menuList}}' wx:key='obj' class='item {{status == item.status?"choice":""}}' data-status='{{item.status}}'>{{item.name}}</view>
+  </view>
+  <view class='block-list'>
+    <view class='item' wx:for='{{contentList}}' wx:key='obj' data-index='{{index}}' bindtap='tapUserContent'>
+      <view class='img'>
+        <image src='{{imgReadPath}}{{item.image.imgUrl}}'></image>
+      </view>
+      <view class='info'>
+        <view class='text font-2x'>{{item.title}}</view>
+        <view class='font-x color1'>
+          {{item.status == 0?'草稿':item.status == 1?'待审核':item.status == 2?'审核通过':item.status == 3?'审核未通过':item.status == 10?'已发布':item.status == 11?'已下线':'未知'}}
+        </view>
+        <view class='font-x color2 last-column'>
+          <view class='last-text'>{{item.createDate}}</view>
+          <navigator class='last-btn' wx:if='{{item.status == 0 || item.status == 3}}' url='/pages/content/write?contentId={{item.id}}'>
+            <view class='icon'>
+              <image src='../../images/input-icon.png'></image>
+            </view>
+            <view class='btn'>编辑</view>
+          </navigator>
+          <view wx:if='{{item.status == 0}}' catchtap='deleteContent' class='last-btn color-main' data-index='{{index}}'>删除</view>
+        </view>
+      </view>
+    </view>
+  </view>
+</scroll-view>

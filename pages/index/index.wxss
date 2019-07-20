@@ -1,0 +1,12 @@
+
+.container{background: transparent;}
+
+.line-list{border-radius: 0 0 16rpx 16rpx;}
+.swiper-box{background: #fff;border-radius: 0 0 30rpx 30rpx;box-shadow: 0 8rpx 10rpx 0 #eee;}
+.swiper-box .swiper-list{height: 360rpx;padding: 15rpx 0;}
+.swiper-box .swiper-list .item{overflow: hidden;border-radius: 15rpx;}
+.swiper-box .swiper-list image{border-radius: 15rpx;margin: 0 20rpx;}
+.swiper-box .swiper-dot-list{margin-top: 350rpx;}
+.swiper-box .swiper-info{padding: 20rpx 40rpx;line-height: 50rpx;}
+
+.tip-text{margin: 10rpx 0;padding: 20rpx; text-align: center;background: #fdf5ea;font-size: 24rpx;color: #e99b34;}

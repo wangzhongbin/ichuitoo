@@ -1,0 +1,17 @@
+
+.container{background: #fff;}
+
+.line-list{border-radius: 0;box-shadow: 0 0 0 0 transparent;}
+
+.line-link .link-title{width: 300rpx;}
+.line-link .title-label{margin-left: 10rpx;font-weight: bold;}
+
+.shadow-frame{margin: 100px 40rpx 0 40rpx;background: #fff;border-radius: 15rpx;border: 2rpx solid #eee;}
+
+.frame{padding: 40rpx;border-bottom: 2rpx solid #eee;}
+
+textarea{width: 100%;margin: auto;padding: 20rpx 0;height: 400rpx;overflow: hidden;}
+.textarea-text{text-align: right;font-size: 24rpx;color: #999;line-height: 40rpx;padding-right: 40rpx;}
+
+.xs-submit-btn{padding: 30rpx 40rpx;}
+.xs-submit-btn .btn{width: 220rpx;line-height: 60rpx;border-radius: 10rpx;font-size: 28rpx;}

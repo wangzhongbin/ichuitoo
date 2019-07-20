@@ -1,0 +1,22 @@
+<template name="top-nav">
+  <view class='start-nav {{nav.isIPX?"start-nav-ipx":""}}'></view>
+  <view class='top-nav'>
+    <navigator class='back-arrow-icon' open-type='navigateBack' delta='1' wx:if='{{!nav.isFirstPage}}'>
+      <image src='../../images/back-arrow-icon.png'></image>
+    </navigator>
+    <view class='back-arrow-icon' wx:if='{{nav.isBack}}' bindtap='toBack'>
+      <image src='../../images/back-arrow-icon.png'></image>
+    </view>
+    <view class='logo-text' wx:if='{{nav.text != "" && nav.text != null}}'>
+      <text>{{nav.text}}</text>
+    </view>
+    <view class='logo-img' wx:else>
+      <image src='../../images/logo-text.png'></image>
+    </view>
+  </view>
+  <view class='top-loading' wx:if='{{nav.loading}}'>
+    <view class='img'>
+      <image src='../../images/loading.gif'></image>
+    </view>
+  </view>
+</template>

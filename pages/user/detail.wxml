@@ -1,0 +1,53 @@
+<import src='../template/nav.wxml'></import>
+<import src='../template/bottom.wxml'></import>
+<import src='../template/content.wxml'></import>
+<template is="top-nav" data='{{nav}}' />
+
+<scroll-view class='container' style='height:{{nav.scrollHeight}}px;' scroll-y='{{true}}'>
+
+  <view class='user-top'>
+    <view class='user-line'>
+      <view class='avatar'>
+        <open-data type='userAvatarUrl'></open-data>
+      </view>
+      <view class='info'>
+        <view class='nick'>
+          <open-data type="userNickName"></open-data>
+        </view>
+        <view class='tag-level'>LV.{{level}}</view>
+        <navigator class='tag-up' url='/pages/user/upgrade?level={{level}}&value={{userCount.empiricalValue}}'>我要升级</navigator>
+        <view class='tag-up-icon'>
+          <image src='../../images/up-icon.png'></image>
+        </view>
+        <view class='font-x color2' bindtap='signature'>{{user.signature}}</view>
+      </view>
+    </view>
+    <view class='column average'>
+      <view class='group'>
+        <view class='font-4x'>{{userCount.issueNumber}}</view>
+        <view class='font-x color2'>发布</view>
+      </view>
+      <view class='group-border'></view>
+      <view class='group'>
+        <view class='font-4x'>{{userCount.likeNumber}}</view>
+        <view class='font-x color2'>关注</view>
+      </view>
+      <view class='group-border'></view>
+      <view class='group'>
+        <view class='font-4x'>{{userCount.fansNumber}}</view>
+        <view class='font-x color2'>粉丝</view>
+      </view>
+      <view class='group-border'></view>
+      <view class='group'>
+        <view class='font-4x'>{{userCount.praiseNumber}}</view>
+        <view class='font-x color2'>获赞</view>
+      </view>
+    </view>
+  </view>
+
+  <view class='content-list'>
+    <template wx:for='{{list}}' wx:key='obj' is='{{item.classType == 1? "content-1": item.classType == 2?"content-2": ""}}' data='{{item}}' />
+  </view>
+
+  <template is="bottom" data='{{bottom}}' />
+</scroll-view>

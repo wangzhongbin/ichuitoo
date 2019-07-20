@@ -1,0 +1,12 @@
+<template name="top-search">
+  <view class='top-search'>
+    <view class='search-frame'>
+      <view class='icon'>
+        <image src='../../images/search-icon.png'></image>
+      </view>
+      <view class='text-input'>
+        <input type='text' maxlength='20' placeholder='请输入您要搜索的内容' bindconfirm='blurInput' confirm-type='搜索' value='{{search.value}}'></input>
+      </view>
+    </view>
+  </view>
+</template>

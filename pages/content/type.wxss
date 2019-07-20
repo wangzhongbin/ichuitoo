@@ -1,0 +1,5 @@
+
+.container{background: #fff;}
+
+.line-list{border-radius: 0;box-shadow: 0 0 0 0 transparent;}
+.line-list line{padding: 40rpx;}

@@ -1,0 +1,146 @@
+{
+	"description": "项目配置文件",
+	"packOptions": {
+		"ignore": []
+	},
+	"setting": {
+		"urlCheck": false,
+		"es6": false,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true
+	},
+	"compileType": "miniprogram",
+	"libVersion": "2.3.2",
+	"appid": "wxcc8c9e1ef3c4890b",
+	"projectname": "aqt_car",
+	"debugOptions": {
+		"hidedInDevtools": []
+	},
+	"isGameTourist": false,
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"currentL": -1,
+			"list": []
+		},
+		"miniprogram": {
+			"current": 2,
+			"list": [
+				{
+					"id": 0,
+					"name": "search",
+					"pathName": "pages/search/search",
+					"query": "value=ssssss"
+				},
+				{
+					"id": 1,
+					"name": "好物",
+					"pathName": "pages/goods/goods",
+					"query": ""
+				},
+				{
+					"id": 2,
+					"name": "图文详情",
+					"pathName": "pages/content/detail",
+					"query": "contentId=1080293674302902273"
+				},
+				{
+					"id": -1,
+					"name": "我的",
+					"pathName": "pages/user/user",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "达人介绍",
+					"pathName": "pages/user/detail",
+					"query": ""
+				},
+				{
+					"id": 5,
+					"name": "发布文章",
+					"pathName": "pages/content/add",
+					"query": "contentId=1076064040254222338"
+				},
+				{
+					"id": -1,
+					"name": "我要发文",
+					"pathName": "pages/user/content",
+					"query": ""
+				},
+				{
+					"id": 7,
+					"name": "写文章",
+					"pathName": "pages/content/write",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "选择文章类型",
+					"pathName": "pages/content/type",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "选择文章标签",
+					"pathName": "pages/content/tag",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "添加链接",
+					"pathName": "pages/content/copy-text",
+					"query": ""
+				},
+				{
+					"id": 11,
+					"name": "好物详情",
+					"pathName": "pages/goods/detail",
+					"query": "goodsId=1077812593267920898"
+				},
+				{
+					"id": -1,
+					"name": "视频详情",
+					"pathName": "pages/video/detail",
+					"query": "videoId=1072767342961184770"
+				},
+				{
+					"id": -1,
+					"name": "好文",
+					"pathName": "pages/content/list",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "我的收藏",
+					"pathName": "pages/user/collect",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "我要升级",
+					"pathName": "pages/user/upgrade",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "联系我们",
+					"pathName": "pages/user/link",
+					"query": ""
+				}
+			]
+		}
+	}
+}

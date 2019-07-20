@@ -1,0 +1,47 @@
+<import src='../template/nav.wxml'></import>
+<import src='../template/bottom.wxml'></import>
+<template is="top-nav" data='{{nav}}' />
+
+<scroll-view class='container' scroll-y='{{true}}' bindtouchstart='touchStart' bindtouchmove='touchMove' bindtouchcancel='touchEnd' bindtouchend='touchEnd' animation='{{animationLoadingData}}' style='height:{{nav.scrollHeight}}px;transform: translateY({{touch.move}}rpx);transition:{{touch.time}}ms ease 0ms;' bindscroll='scroll'>
+  <view style='height:{{nav.scrollHeight + 2}}px;'>
+    <view class='top' wx:if='{{ad.top.list.length > 0}}'>
+      <swiper autoplay='{{true}}' interval='3000' duration='500' circular='{{true}}' class='swiper-box' bindchange='swiperChange'>
+        <swiper-item wx:for='{{ad.top.list}}' wx:key='obj' bindtap='toAdPage' data-index='{{index}}' data-type='1'>
+          <image src='{{imgReadPath}}{{item.imgUrl}}' />
+        </swiper-item>
+      </swiper>
+      <view class='swiper-dot-list'>
+        <view wx:for='{{ad.top.list}}' wx:key='obj' class='dot {{index == ad.top.current?"choice-dot":""}}'></view>
+      </view>
+    </view>
+
+    <view class='swiper-small-box' wx:if='{{ad.middle.list.length > 0}}'>
+      <view class='title'>为您挑选世间好物</view>
+      <swiper autoplay='{{true}}' next-margin='50rpx' interval='2500' duration='500' circular='{{true}}' class='item'>
+        <swiper-item wx:for='{{ad.middle.list}}' wx:key='obj' bindtap='toAdPage' data-index='{{index}}' data-type='2'>
+          <image src='{{imgReadPath}}{{item.imgUrl}}' />
+        </swiper-item>
+      </swiper>
+    </view>
+
+    <view class='block-list' wx:if='{{goodsList.length > 0}}'>
+      <navigator class='item' wx:for='{{goodsList}}' wx:key='obj' url='/pages/goods/detail?goodsId={{item.id}}'>
+        <view class='img'>
+          <image src='{{imgReadPath}}{{item.image.imgUrl}}'></image>
+        </view>
+        <view class='info'>
+          <view class='title text-over'>{{item.title}}</view>
+          <view class='text font-x color2 text-over text-over-4'>{{item.info}}</view>
+          <view class='praise-tag'>
+            <view class='tag-icon'>
+              <image src='../../images/smil-face-icon.png'></image>
+            </view>
+            <view class='tag-text font-2x'>{{item.praiseNumber}}人觉得赞</view>
+          </view>
+        </view>
+      </navigator>
+    </view>
+
+    <template is="bottom" data='{{bottom}}' />
+  </view>
+</scroll-view>

@@ -1,0 +1,12 @@
+<import src='../template/nav.wxml'></import>
+<import src='../template/bottom.wxml'></import>
+<import src='../template/content.wxml'></import>
+<template is="top-nav" data='{{nav}}' />
+
+<scroll-view class='container' style='height:{{nav.scrollHeight}}px;' scroll-y='{{true}}'>
+  <view class='content-list'>
+    <template wx:for='{{list}}' wx:key='obj' is='{{item.classType == 1? "content-1": item.classType == 2?"content-2": ""}}' data='{{item}}' />
+  </view>
+
+  <template is="bottom" data='{{bottom}}' />
+</scroll-view>

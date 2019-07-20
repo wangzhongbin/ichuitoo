@@ -1,0 +1,99 @@
+<!-- 类型1左右 -->
+<template name="content-1">
+  <navigator class='content class-1' url='/pages/content/detail?contentId={{item.id}}'>
+    <view class='info'>
+      <view class='title text-over text-over-2'>
+        <text wx:if='{{item.choice == 1}}' class='content-choice'>精选</text> {{item.title}}
+      </view>
+      <view class='column font-x color2'>
+        <view class='group'>
+          <view class='group-icon avatar'>
+            <image src='{{item.userAvatarUrl}}'></image>
+          </view>
+          <view class='group-text text-over'>{{item.userNickName}}</view>
+        </view>
+        <view class='group'>
+          <view class='group-icon'>
+            <image src='../../images/comment-icon.png'></image>
+          </view>
+          <view class='group-text'>{{item.commentNumber >= 999? '999+':item.commentNumber}}</view>
+        </view>
+        <view class='group'>
+          <view class='group-icon'>
+            <image src='../../images/praise-icon.png'></image>
+          </view>
+          <view class='group-text'>{{item.praiseNumber >= 999? '999+':item.praiseNumber}}</view>
+        </view>
+      </view>
+    </view>
+    <view class='img'>
+      <image src='{{item.imgReadPath}}{{item.image.imgUrl}}'></image>
+    </view>
+  </navigator>
+</template>
+
+<!-- 类型2上下 -->
+<template name="content-2">
+  <navigator class='content class-2' url='/pages/content/detail?contentId={{item.id}}'>
+    <view class='title text-over'>
+      <text wx:if='{{item.choice == 1}}' class='content-choice'>精选</text> {{item.title}}
+    </view>
+    <view class='img-list average'>
+      <view class='img' wx:for='{{item.imageList}}' wx:for-item='imageItem' wx:key='image'>
+        <image src='{{item.imgReadPath}}{{imageItem.imgUrl}}'></image>
+      </view>
+    </view>
+    <view class='column font-x color2'>
+      <view class='group'>
+        <view class='group-icon avatar'>
+          <image src='{{item.userAvatarUrl}}'></image>
+        </view>
+        <view class='group-text'>{{item.userNickName}}</view>
+      </view>
+      <view class='group'>
+        <view class='group-icon'>
+          <image src='../../images/comment-icon.png'></image>
+        </view>
+        <view class='group-text'>{{item.commentNumber >= 999? '999+':item.commentNumber}}</view>
+      </view>
+      <view class='group'>
+        <view class='group-icon'>
+          <image src='../../images/praise-icon.png'></image>
+        </view>
+        <view class='group-text'>{{item.praiseNumber >= 999? '999+':item.praiseNumber}}</view>
+      </view>
+    </view>
+  </navigator>
+</template>
+
+<!-- 类型3视频 -->
+<template name="content-3">
+  <navigator class='content class-3' url='/pages/video/detail?videoId={{item.id}}'>
+    <view class='title text-over'>{{item.title}}</view>
+    <view class='img'>
+      <image src='{{item.imgReadPath}}{{item.image.imgUrl}}'></image>
+    </view>
+    <view class='column font-x color2'>
+      <view class='group'>
+        <text>{{item.onlineDate}}</text>
+      </view>
+      <view class='group'>
+        <view class='group-icon'>
+          <image src='../../images/comment-icon.png'></image>
+        </view>
+        <view class='group-text'>{{item.commentNumber >= 999? '999+':item.commentNumber}}</view>
+      </view>
+      <view class='group'>
+        <view class='group-icon'>
+          <image src='../../images/praise-icon.png'></image>
+        </view>
+        <view class='group-text'>{{item.praiseNumber >= 999? '999+':item.praiseNumber}}</view>
+      </view>
+    </view>
+  </navigator>
+</template>
+
+<!-- 提示语 -->
+<template name="content-tip">
+  <view class='tip-text' wx:if='{{item.flag}}'>您刚才看到这里</view>
+</template>

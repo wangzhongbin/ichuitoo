@@ -1,0 +1,13 @@
+
+.container{background: transparent;}
+
+.top{background: #e41c26;padding: 0 30rpx;}
+.top .swiper-box{border-radius: 25rpx 25rpx 0 0;width: 690rpx;height: 350rpx;overflow: hidden;}
+.swiper-dot-list{margin-top: 10rpx;}
+.swiper-dot-list .dot{background: #d2d2d2;}
+.swiper-dot-list .choice-dot{background: #e41c26;}
+
+.swiper-small-box{padding: 30rpx 0;background: #fff;}
+.swiper-small-box .title{padding: 20rpx 30rpx;line-height: 40rpx;font-size: 40rpx;}
+.swiper-small-box .item{padding-left: 30rpx;height: 180rpx;}
+.swiper-small-box image{width: 650rpx;border-radius: 15rpx;}

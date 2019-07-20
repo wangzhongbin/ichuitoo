@@ -1,0 +1,29 @@
+<import src='../template/nav.wxml'></import>
+<template is="top-nav" data='{{nav}}' />
+
+<scroll-view class='container' style='height:{{nav.scrollHeight}}px;' scroll-y='{{true}}'>
+  <view class='top'>
+    <view class='top-img'>
+      <image src='{{imgReadPath}}{{image.imgUrl}}'></image>
+    </view>
+  </view>
+  <view class='info'>{{company.introduce}}</view>
+  <view class='info'>
+    <view class='info-line'>
+      <view class='label'>名称：</view>
+      <view class='text'>{{company.name}}</view>
+    </view>
+    <view class='info-line'>
+      <view class='label'>地址：</view>
+      <view class='text'>{{company.address}}</view>
+    </view>
+    <view class='info-line'>
+      <view class='label'>电话：</view>
+      <view class='text'>{{company.tel}}</view>
+    </view>
+    <view class='info-line'>
+      <view class='label'>邮箱：</view>
+      <view class='text'>{{company.email}}</view>
+    </view>
+  </view>
+</scroll-view>

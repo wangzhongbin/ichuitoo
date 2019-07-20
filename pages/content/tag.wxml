@@ -1,0 +1,28 @@
+<import src='../template/nav.wxml'></import>
+<template is="top-nav" data='{{nav}}' />
+
+<scroll-view class='container' style='height:{{nav.scrollHeight}}px;' scroll-y='{{true}}'>
+  <view class='tag-title'>已选标签</view>
+  <view class='tag-list'>
+    <view class='tag' wx:for='{{choiceList}}' wx:key='obj'>
+      <view class='tag-text'>{{item.name}}</view>
+      <view class='tag-icon' data-index='{{index}}' bindtap='delete'>
+        <image src='../../images/close-icon.png'></image>
+      </view>
+    </view>
+  </view>
+  <view class='tag-title'>标签列表</view>
+  <view class='line-list'>
+    <view class='line line-link' wx:for='{{tagList}}' wx:key='obj'>
+      <view class='link-icon'>
+        <image src='{{imgReadPath}}{{item.imgUrl}}'></image>
+      </view>
+      <view class='link-title'>{{item.name}}</view>
+      <view class='link-text'>该标签热度：{{item.useNumber}}</view>
+      <view class='last'>
+        <view class='btn font-2x' wx:if='{{item.isChoice}}'>已添加</view>
+        <view class='btn font-2x click-btn' data-index='{{index}}' bindtap='choice' wx:else>添加</view>
+      </view>
+    </view>
+  </view>
+</scroll-view>

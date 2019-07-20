@@ -1,0 +1,11 @@
+<import src='../template/nav.wxml'></import>
+<template is="top-nav" data='{{nav}}' />
+
+<scroll-view class='container' style='height:{{nav.scrollHeight}}px;' scroll-y='{{true}}'>
+  <view class='top'>
+    <textarea placeholder='你可以在此复制添加淘口令，淘口令将在文章底部以按钮的形式显示。' placeholder-class='input-placeholder' maxlength='100' bindinput='inputCopyText' value='{{copyText}}'></textarea>
+  </view>
+  <view class='submit-btn'>
+    <view class='btn' bindtap='addCopyText'>确认添加</view>
+  </view>
+</scroll-view>

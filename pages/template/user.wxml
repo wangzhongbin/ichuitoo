@@ -1,0 +1,23 @@
+<template name="userList">
+  <view class='line-list'>
+    <view class='line line-user' wx:for='{{list}}' wx:for-item='userItem' wx:key='userKey'>
+      <view class='img'>
+        <image src='{{userItem.avatarUrl}}'></image>
+      </view>
+      <view class='info'>
+        <view class='font-2x'>{{userItem.nickName}}</view>
+        <view class='font-x color2 text-over'>{{userItem.signature}}</view>
+        <view class='font-x color2'>粉丝数：{{userItem.fansNumber}}</view>
+      </view>
+      <view class='last'>
+        <view data-index='{{index}}' bindtap='addLike' class='btn font-2x click-btn' wx:if='{{!userItem.fans}}'>关注</view>
+        <view data-index='{{index}}' bindtap='cancelLike' class='btn font-2x' wx:else>
+          <!-- 当前用户是粉丝，也是被关注人 -->
+          <text wx:if='{{userItem.like}}' class='font-x'>相互关注</text>
+          <!-- 当前用户是粉丝 -->
+          <text wx:else>已关注</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</template>

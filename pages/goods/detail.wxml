@@ -1,0 +1,92 @@
+<import src='../template/nav.wxml'></import>
+<import src='../template/comment.wxml'></import>
+<import src='../template/bottom.wxml'></import>
+<import src='../template/share.wxml'></import>
+<template is="top-nav" data='{{nav}}' />
+
+<scroll-view class='container' style='height:{{nav.scrollHeight}}px;' scroll-y='{{true}}'>
+  <view class='swiper-box'>
+    <view class='swiper-dot-list' wx:if='{{goods.swiper.list.length > 1}}'>
+      <view wx:for='{{goods.swiper.list}}' wx:key='obj' class='dot {{index == goods.swiper.current?"choice-dot":""}}'></view>
+    </view>
+    <swiper class='swiper-list' autoplay='{{true}}' interval='3000' duration='500' circular='{{true}}' bindchange='swiperChange'>
+      <swiper-item wx:for='{{goods.swiper.list}}' wx:key='obj'>
+        <image src='{{imgReadPath}}{{item.imgUrl}}' />
+      </swiper-item>
+    </swiper>
+  </view>
+  <view class='top'>
+    <view class='title'>{{goods.title}}</view>
+    <view class='title-info font-2x color2'>{{goods.info}}</view>
+    <view class='goods-attr'>
+      <view class='praise-tag'>
+        <view class='tag-icon'>
+          <image src='../../images/smil-face-icon.png'></image>
+        </view>
+        <view class='tag-text font-2x'>{{bottomToolbar.praiseNumber}}人觉得赞</view>
+      </view>
+      <view class='price-tag'>
+        <view class='tag-icon'>¥</view>
+        <view class='tag-text'>{{goods.price}}</view>
+      </view>
+    </view>
+  </view>
+
+  <view class='main'>
+    <view class='float-tag'>
+      <view class='tag-text font-4x'>好在哪里</view>
+    </view>
+    <view class='dot-text-list'>
+      <view class='dot-text' wx:for='{{goods.fineArray}}' wx:key='obj'>
+        <view class='dot'></view>
+        <view class='text'>{{item}}</view>
+      </view>
+    </view>
+    <view class='float-tag'>
+      <view class='tag-text font-4x'>好物亮点</view>
+    </view>
+    <view class='post-main'>
+      <view class='content'>
+        <view wx:for='{{goods.goodsItemList}}' wx:key='obj'>
+          <view class='content-img' wx:if='{{item.type == 3}}'>
+            <image src='{{imgReadPath}}{{item.image.imgUrl}}' mode='widthFix'></image>
+          </view>
+          <view class='content-text' wx:if='{{item.type == 4}}'>
+            <text>{{item.nice}}</text>
+          </view>
+        </view>
+      </view>
+
+      <view class='font-x color2'>阅读量 {{goods.pvNumber}}</view>
+
+      <view class='copy-info' wx:if='{{goods.copyText != "" && goods.copyText != null}}'>
+        <view class='btn' bindtap='copy'>
+          <view class='icon'>
+            <image src='../../images/copy-icon.png'></image>
+          </view>
+          <view class='text font-2x'>点击复制淘口令购买商品吧～</view>
+        </view>
+      </view>
+
+      <view class='share-info average'>
+        <view class='btn' bindtap='shareImage'>
+          <view class='icon'>
+            <image src='../../images/share-icon-1.png'></image>
+          </view>
+          <view class='text font-2x'>分享到朋友圈</view>
+        </view>
+
+        <button class='btn' open-type='share'>
+          <view class='icon'>
+            <image src='../../images/share-icon-1.png'></image>
+          </view>
+          <view class='text font-2x'>分享给微信好友</view>
+        </button>
+      </view>
+
+    </view>
+    <template is="comment" data='{{comment}}' />
+  </view>
+</scroll-view>
+<template is="bottom-toolbar" data='{{bottomToolbar}}' />
+<template is="detailShare" data='{{share}}' />

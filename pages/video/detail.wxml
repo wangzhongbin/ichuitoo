@@ -1,0 +1,61 @@
+<import src='../template/nav.wxml'></import>
+<import src='../template/comment.wxml'></import>
+<import src='../template/bottom.wxml'></import>
+<import src='../template/share.wxml'></import>
+<template is="top-nav" data='{{nav}}' />
+
+<scroll-view class='container' style='height:{{nav.scrollHeight}}px;' scroll-y='{{true}}'>
+  <view class='video' wx:if='{{video.videoUrl != null && video.videoUrl != ""}}'>
+    <video src='{{video.videoUrl}}' poster='{{imgReadPath}}{{video.image.imgUrl}}'></video>
+  </view>
+
+  <view class='main'>
+    <view class='top'>
+      <view class='title font-4x'>{{video.title}}</view>
+      <view class='title-info font-2x color2'>{{video.info}}</view>
+      <view class='font-x color2'>阅读量 {{video.pvNumber}}</view>
+    </view>
+
+    <view class='content-list' wx:if='{{randomList.length > 0}}'>
+      <navigator class='content class-1' wx:for='{{randomList}}' wx:key='obj' url='/pages/video/detail?videoId={{item.id}}'>
+        <view class='info'>
+          <view class='title'>{{item.title}}</view>
+          <view class='column font-x color2'>{{item.createDate}}</view>
+        </view>
+        <view class='img'>
+          <image src='{{imgReadPath}}{{item.image.imgUrl}}'></image>
+        </view>
+      </navigator>
+    </view>
+
+    <view class='post-main'>
+      <view class='copy-info' wx:if='{{video.copyText != "" && video.copyText != null}}'>
+        <view class='btn' bindtap='copy'>
+          <view class='icon'>
+            <image src='../../images/copy-icon.png'></image>
+          </view>
+          <view class='text font-2x'>点击复制淘口令购买商品吧～</view>
+        </view>
+      </view>
+
+      <view class='share-info average'>
+        <view class='btn' bindtap='shareImage'>
+          <view class='icon'>
+            <image src='../../images/share-icon-1.png'></image>
+          </view>
+          <view class='text font-2x'>分享到朋友圈</view>
+        </view>
+
+        <button class='btn' open-type='share'>
+          <view class='icon'>
+            <image src='../../images/share-icon-1.png'></image>
+          </view>
+          <view class='text font-2x'>分享给微信好友</view>
+        </button>
+      </view>
+    </view>
+    <template is="comment" data='{{comment}}' />
+  </view>
+</scroll-view>
+<template is="bottom-toolbar" data='{{bottomToolbar}}' />
+<template is="detailShare" data='{{share}}' />

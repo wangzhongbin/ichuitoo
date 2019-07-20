@@ -1,0 +1,72 @@
+<import src='../template/nav.wxml'></import>
+<import src='../template/search.wxml'></import>
+<import src='../template/menu.wxml'></import>
+<import src='../template/content.wxml'></import>
+<import src='../template/user.wxml'></import>
+<import src='../template/bottom.wxml'></import>
+<template is="top-nav" data='{{nav}}' />
+
+<scroll-view class='container' scroll-y='{{true}}' bindtouchstart='touchStart' bindtouchmove='touchMove' bindtouchcancel='touchEnd' bindtouchend='touchEnd' animation='{{animationLoadingData}}' style='height:{{nav.scrollHeight}}px;transform: translateY({{touch.move}}rpx);transition:{{touch.time}}ms ease 0ms;' bindscroll='scroll' bindscrolltolower='scrollTolower'>
+  <view style='height:{{nav.scrollHeight + 2}}px;'>
+    <template is="top-search" />
+    <template is="menu" data='{{menu}}' />
+
+    <!-- 头条开始 -->
+    <view wx:if='{{pageType == 1}}'>
+      <view class='swiper-box' wx:if='{{indexData.swiper.list.length > 0}}'>
+        <view class='swiper-dot-list'>
+          <view wx:for='{{indexData.swiper.list}}' wx:key='obj' class='dot {{index == indexData.swiper.current?"choice-dot":""}}'></view>
+        </view>
+        <swiper class='swiper-list' previous-margin='20rpx' next-margin='40rpx' autoplay='{{true}}' interval='3000' duration='500' circular='{{true}}' bindchange='swiperChange'>
+          <swiper-item wx:for='{{indexData.swiper.list}}' wx:key='obj' class='item' bindtap='toAdPage' data-index='{{index}}'>
+            <image src='{{imgReadPath}}{{item.imgUrl}}' />
+          </swiper-item>
+        </swiper>
+        <view class='swiper-info'>
+          <view class='font-3x font-bold'>{{indexData.swiper.list[indexData.swiper.current].title}}</view>
+          <view class='font-x color1'>{{indexData.swiper.list[indexData.swiper.current].subTitle}}</view>
+        </view>
+      </view>
+
+      <!-- <view class='block-like' bindtap='loadPage'> -->
+      <view class='block-like'>
+        <navigator class='img' target='miniProgram' app-id='wx7462971590e3994a' version='trial'>
+          <image src='../../images/program-like.png' mode='widthFix'></image>
+        </navigator>
+      </view>
+
+      <view class='content-list'>
+        <template wx:for='{{indexData.list}}' wx:key='obj' is='{{item.classType == 1? "content-1": item.classType == 2?"content-2": item.classType == 3?"content-3": "content-tip"}}' data='{{item}}' />
+      </view>
+    </view>
+    <!-- 头条结束 -->
+
+    <!-- 图文内容开始 -->
+    <view wx:if='{{pageType == 2}}'>
+      <view class='content-list'>
+        <template wx:for='{{contentData.list}}' wx:key='obj' is='{{item.classType == 1? "content-1": item.classType == 2?"content-2": ""}}' data='{{item}}' />
+      </view>
+    </view>
+    <!-- 图文内容结束 -->
+
+    <!-- 视频开始 -->
+    <view wx:if='{{pageType == 3}}'>
+      <view class='content-list'>
+        <template wx:for='{{videoData.list}}' wx:key='obj' is='content-3' data='{{item}}' />
+      </view>
+    </view>
+    <!-- 视频结束 -->
+
+    <!-- 达人推荐 -->
+    <view wx:if='{{pageType == 4}}'>
+    <scroll-view class='menu-scroll small-menu-scroll' scroll-x='{{true}}'>
+    <view class='small-menu'>
+        <view bindtap='tapUserType' wx:for='{{userData.type.list}}' wx:key='obj' class='item {{userData.type.choiceIndex == index ? "choice" : ""}}' data-index='{{index}}'>{{item.name}}</view>
+      </view>
+    </scroll-view>
+      <template is="userList" data='{{...userData}}' />
+    </view>
+
+    <template is="bottom" data='{{bottom}}' />
+  </view>
+</scroll-view>

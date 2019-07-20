@@ -1,0 +1,27 @@
+
+@import '../../utils/wxss/text-detail.wxss';
+@import '../../utils/wxss/share.wxss';
+
+.top{box-shadow: 0 8rpx 10rpx 0 #f2f2f2;border-radius: 0 0 10rpx 10rpx;}
+.main{background:linear-gradient(#f2f2f2,#fff 20rpx);}
+.swiper-box .swiper-list{height: 67vw;}
+.swiper-dot-list{margin-top: 470rpx;}
+.swiper-dot-list .dot{background: #fff;}
+.swiper-dot-list .choice-dot{background: #e41c26;}
+
+.goods-attr{padding-top: 30rpx;border-top: 2rpx dashed #dcdcdc;color: #e41c26;line-height: 40rpx;}
+.price-tag{float: right;text-align: right;font-size: 48rpx;}
+.price-tag .tag-icon{font-size: 28rpx;display: inline-block;margin-right: 10rpx;}
+.price-tag .tag-text{display: inline-block;}
+
+.float-tag{background: #fce8e9;padding: 15rpx 40rpx;display: inline-block;margin-top: 60rpx;}
+
+.dot-text-list{padding: 40rpx 40rpx 0 40rpx;}
+.dot-text-list .dot-text{padding: 15rpx 0;line-height: 36rpx;}
+.dot-text-list .dot-text .dot{display: inline-block;width: 12rpx;height: 12rpx;border-radius: 100%;background: #e99b34;}
+.dot-text-list .dot-text .text{display: inline-block;padding-left: 40rpx;}
+
+.input-frame{width: 440rpx !important;}
+.input-frame .text-input{width: 350rpx !important;}
+.icon-list{width: 200rpx !important;}
+.icon-list .icon:nth-child(1){display: none;}

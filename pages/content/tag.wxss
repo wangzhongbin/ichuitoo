@@ -1,0 +1,15 @@
+
+.container{background: #fff;font-size: 30rpx;}
+
+.line-list{border-radius: 0;box-shadow: 0 0 0 0 transparent;border: 0;}
+.line-link{padding: 20rpx 30rpx;border: 0;line-height: 100rpx;}
+.line-link .link-icon{height: 100rpx;width: 100rpx;}
+.line-link .link-title{width: 185rpx;}
+/* .line-link .link-text{width: 260rpx;} */
+
+.tag-list{padding: 30rpx 40rpx;min-height: 220rpx;}
+.tag-list .tag{border-radius: 40rpx;border: 2rpx solid #e99b34;display: inline-block;height: 80rpx;background: #fff;margin: 0 40rpx 40rpx 0;}
+.tag-list .tag .tag-text{height: 80rpx;display: inline-block;vertical-align: top;line-height: 80rpx;padding: 0 20rpx;}
+.tag-list .tag .tag-icon{background: #fff7ec;width: 24rpx;height: 24rpx;display: inline-block;border-left: 2rpx solid #e99b34;padding: 28rpx 18rpx;line-height: 24rpx;border-radius: 0 40rpx 40rpx 0}
+
+.tag-title{padding: 20rpx 40rpx;border-bottom: 2rpx solid #eee;}

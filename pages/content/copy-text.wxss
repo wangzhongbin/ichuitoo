@@ -1,0 +1,5 @@
+
+.container{background: #fff;font-size: 30rpx;}
+
+.top{padding: 80rpx 40rpx 0 40rpx;}
+.top textarea{width: auto;border-radius: 16rpx;border: 2rpx solid #e3e3e3;padding: 40rpx 20rpx;}

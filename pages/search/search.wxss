@@ -1,0 +1,2 @@
+.line-list{border-radius: 0 0 16rpx 16rpx;}
+.menu{display: flex;justify-content: space-around;flex-wrap: wrap;}

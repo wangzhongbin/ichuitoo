@@ -1,0 +1,80 @@
+<import src='../template/nav.wxml'></import>
+<import src='../template/comment.wxml'></import>
+<import src='../template/bottom.wxml'></import>
+<import src='../template/share.wxml'></import>
+<template is="top-nav" data='{{nav}}' />
+
+<scroll-view class='container' style='height:{{nav.scrollHeight}}px;' scroll-y='{{true}}'>
+  <view class='main'>
+    <view class='post-main'>
+      <view class='title font-4x'>{{content.title}}</view>
+      <view class='user-top'>
+        <view class='user-line'>
+          <view class='avatar'>
+            <image src='{{content.user.avatarUrl}}'></image>
+          </view>
+          <view class='info'>
+            <view>
+              <view class='nick'>{{content.user.nickName}}</view>
+            </view>
+            <view class='font-x color2'>{{content.auditDate}}</view>
+          </view>
+          <view class='last' wx:if='{{authScope.userInfo}}'>
+            <view wx:if='{{!user.self}}'>
+              <view bindtap='addLike' class='btn font-2x click-btn' wx:if='{{!user.fans}}'>关注</view>
+              <view bindtap='cancelLike' class='btn font-2x' wx:else>
+                <!-- 当前用户是粉丝，也是被关注人 -->
+                <text wx:if='{{user.like}}' class='font-x'>相互关注</text>
+                <!-- 当前用户是粉丝 -->
+                <text wx:else>已关注</text>
+              </view>
+            </view>
+          </view>
+          <button class='last' open-type='getUserInfo' bindgetuserinfo='onGetUserInfo' wx:else>
+            <view class='btn font-2x click-btn'>关注</view>
+          </button>
+        </view>
+      </view>
+      <view class='content'>
+        <view wx:for='{{content.contentItemList}}' wx:key='obj'>
+          <view wx:if='{{item.type == 2}}' class='content-img'>
+            <image src='{{imgReadPath}}{{item.image.imgUrl}}' mode='widthFix'></image>
+          </view>
+          <view wx:if='{{item.type == 3}}' class='content-text'>
+            <text>{{item.text}}</text>
+          </view>
+        </view>
+      </view>
+
+      <view class='font-x color2'>阅读量 {{content.textCount.pvNumber}}</view>
+
+      <view class='copy-info' wx:if='{{content.copyText != "" && content.copyText != null}}'>
+        <view class='btn' bindtap='copy'>
+          <view class='icon'>
+            <image src='../../images/copy-icon.png'></image>
+          </view>
+          <view class='text font-2x'>点击复制淘口令购买商品吧～</view>
+        </view>
+      </view>
+
+      <view class='share-info average'>
+        <view class='btn' bindtap='shareImage'>
+          <view class='icon'>
+            <image src='../../images/share-icon-1.png'></image>
+          </view>
+          <view class='text font-2x'>分享到朋友圈</view>
+        </view>
+
+        <button class='btn' open-type='share'>
+          <view class='icon'>
+            <image src='../../images/share-icon-1.png'></image>
+          </view>
+          <view class='text font-2x'>分享给微信好友</view>
+        </button>
+      </view>
+    </view>
+    <template is="comment" data='{{comment}}' />
+  </view>
+</scroll-view>
+<template is="bottom-toolbar" data='{{bottomToolbar}}' />
+<template is="detailShare" data='{{share}}' />

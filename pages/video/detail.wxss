@@ -1,0 +1,7 @@
+
+@import '../../utils/wxss/text-detail.wxss';
+@import '../../utils/wxss/share.wxss';
+
+.video video{width: 100%;height: 75vw;}
+
+.content-list{border-bottom: 2rpx #efefef solid;border-top: 2rpx #efefef solid;}

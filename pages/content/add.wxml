@@ -1,0 +1,52 @@
+<import src='../template/nav.wxml'></import>
+<template is="top-nav" data='{{nav}}' />
+
+<scroll-view class='container' style='height:{{nav.scrollHeight}}px;' scroll-y='{{true}}'>
+
+  <view class='upload'>
+    <view class='upload-list'>
+      <view class='img' wx:for='{{topList}}' wx:key='obj' bindtap='showImage'>
+        <view class='close-img' bindtap='deleteImg' data-index='{{index}}'>
+          <image src='../../images/close-img.png'></image>
+        </view>
+        <image src='{{item.imgUrl}}'></image>
+      </view>
+      <view class='img' bindtap='chooseImage' wx:if='{{topList.length < 3}}'>
+        <view class='icon'>
+          <image src='../../images/upload-img-icon.png'></image>
+        </view>
+        <view class='font-x'>添加头图</view>
+      </view>
+    </view>
+    <view class='upload-tips'>提示：最多可上传3张头图</view>
+  </view>
+
+  <view class='line-list'>
+    <navigator class='line line-link' url='/pages/content/type'>
+      <view class='link-title'>选择文章类型</view>
+      <view class='link-text'>{{type.name}}</view>
+      <view class='link-arrow'>
+        <image src='../../images/arrow-left-icon.png'></image>
+      </view>
+    </navigator>
+    <navigator class='line line-link' url='/pages/content/tag'>
+      <view class='link-title'>添加标签</view>
+      <view class='link-text text-over'>
+        <text wx:for='{{tagList}}' wx:key='obj'>{{item.name}}  </text>
+      </view>
+      <view class='link-arrow'>
+        <image src='../../images/arrow-left-icon.png'></image>
+      </view>
+    </navigator>
+    <navigator class='line line-link' url='/pages/content/copy-text'>
+      <view class='link-title'>添加链接</view>
+      <view class='link-text text-over'>{{copyText}}</view>
+      <view class='link-arrow'>
+        <image src='../../images/arrow-left-icon.png'></image>
+      </view>
+    </navigator>
+  </view>
+  <view class='submit-btn'>
+    <button class='btn' disabled='{{isDisabled}}' bindtap='addContent'>发布文章</button>
+  </view>
+</scroll-view>
